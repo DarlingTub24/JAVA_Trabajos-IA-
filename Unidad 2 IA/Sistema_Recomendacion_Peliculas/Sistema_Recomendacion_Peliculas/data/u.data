@@ -1,13 +1,10 @@
-1 4 5 874965758    # User 1 da 5 estrellas a The Matrix
-1 11 4 874965759   # User 1 también califica John Wick
-1 5 2 874965760    # User 1 califica Titanic con 2
-2 5 5 874965761    # User 2 ama Titanic
-2 6 4 874965762    # User 2 ve Inception
-2 7 3 874965763    # User 2 ve The Notebook
-3 8 5 874965764    # User 3 ve La La Land
-3 7 4 874965765    # User 3 también Notebook
-4 9 5 874965766    # User 4 ve The Dark Knight
-4 10 5 874965767   # User 4 ve Avengers Endgame
-5 1 4 874965768    # User 5 ve Toy Story
-5 2 3 874965769    # User 5 ve Jumanji
-5 3 2 874965770    # User 5 ve Grumpier Old Men
+1|4   # User 1 da 5 estrellas a The Matrix
+1|5    # User 1 califica Titanic con 2
+2|5    # User 2 ama Titanic
+2|6    # User 2 ve Inception
+2|7    # User 2 ve The Notebook
+3|8    # User 3 ve La La Land
+4|9   # User 4 ve The Dark Knight
+4|10   # User 4 ve Avengers Endgame
+5|1    # User 5 ve Toy Story
+5|3    # User 5 ve Grumpier Old Men
