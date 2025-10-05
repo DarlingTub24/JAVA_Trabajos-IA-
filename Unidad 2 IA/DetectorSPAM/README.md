@@ -15,7 +15,7 @@ data/
 
 Contenido del CSV:
 
-direccion del remitente|asunto|contenido|link|adjunto|Spam o Legible
+direccion del remitente| asunto | contenido | link | adjunto | Spam o Legible
 
 Ejemplo:
 
