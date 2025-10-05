@@ -19,7 +19,9 @@ data/
   u.user
 
 Modulos y Clases:
+
 (Interfaz grafica con Tkinter)
+
 app.py.- Archivo principal que inicializa el sistema, se encarga de cargar todos los datos, iniciarlizar la lista de peliculas y usuarios y iniciar la interfaz login
 
 GUI_login.py.-Muestra la ventana donde el usuario selecciona su perfil para acceder al sistema de recomendaciones, desde aqui se controla el paso a las demas interfaces del programa.
@@ -46,17 +48,31 @@ creaciones.py.- Genera las listas iniciales de actores, géneros, peliculas y us
 Flujo del Sistema:
 
 1.- Inicio (app.py)
+
   Carga datos y abre la ventana de login (GUI_login).
+  
 2.- Login
+
   Se selecciona de usuario del comboBox, se da click en el boton "Iniciar sesion" y luego se abre la interfaz de recomendaciones.
+  
 3.- Recomendaciones (GUI_recomendaciones)
+
   Muestra datos del usuario, peliculas vistas y recomendaciones en base a genero y actores preferidos.
+  
   Si se da click en el boton "cambiar de usuario" se vuelve a la interfaz de login (GUI_login).
+  
   Si se da click en el boton "Ver Película Nueva" se abre la interfaz que simula ver una pelicula (GUI_verPeliculas).
+  
 4.- Ver Película Nueva (GUI_verPeliculas)
+
   Se selecciona una película no vista del comboBox.
+  
   Se da click en el boton "VER PELICULA" y se actualiza la lista de peliculas vistas del usuario y las recomendaciones.
+  
   Luego se regresa a la interfaz de recomendaciones (GUI_recomendaciones).
+  
 5.- Persistencia
+
   Cuando un usuario ve una película nueva (proceso del paso 4), se actualiza data/u.user con la ID de la película vista.
+  
   
