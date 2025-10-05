@@ -13,7 +13,15 @@ creacion.py
 data/
     correos.csv
 
-Reglas para detccion:
+Contenido del CSV:
+
+direccion del remitente|asunto|contenido|link|adjunto|Spam o Legible
+
+Ejemplo:
+
+premios@ganadineroya.biz|¡Felicitaciones, ganaste un premio!|Has sido seleccionado para recibir un regalo totalmente GRATIS.|http://ganadineroya.biz| |Spam
+
+Reglas para deteccion:
 
 Regla 1.- Activadores de palabras clave:
 Si el asunto o contenido o la direccion del remitente contiene palabras relacionadas con promociones, premios, urgencias, recompensas, dar clic,ectc.., se suma 1 punto a la probabilidad de spam por cada palabra sospechosa.
