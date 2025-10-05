@@ -10,10 +10,10 @@ class correo:
 
     
     ##Regla 1.- Activadores de palabras clave:
-    ##Si el asunto o contenido contiene palabras relacionadas con promociones, premios,
+    ##Si el asunto o contenido o la direccion del remitente contiene palabras relacionadas con promociones, premios,
     ##urgencias, recompensas, dar clic,ectc.., se suma 1 punto a la probabilidad de spam por cada palabra sospechosa.
     ##Regla 2.- Reputacion del remitente:
-    ##Si el dominio del link del correo esta en la lista de dominios sospechosos,
+    ##Si el dominio del link del correo o de la direccion del remitente esta en la lista de dominios sospechosos,
     ## se suman 2 puntos a la probabilidad de spam.
     ##Regla 3.- Archivos riesgosos:
     ##Si el archivo adjunto es un ejecutable o contenido comprimido se considera 
