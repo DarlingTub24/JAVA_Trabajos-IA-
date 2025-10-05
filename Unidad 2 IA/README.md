@@ -21,16 +21,27 @@ data/
 Modulos y Clases:
 (Interfaz grafica con Tkinter)
 app.py.- Archivo principal que inicializa el sistema, se encarga de cargar todos los datos, iniciarlizar la lista de peliculas y usuarios y iniciar la interfaz login
+
 GUI_login.py.-Muestra la ventana donde el usuario selecciona su perfil para acceder al sistema de recomendaciones, desde aqui se controla el paso a las demas interfaces del programa.
+
 GUI_recomendaciones.py.- Presenta los datos del usuario, las peliculas vistas y las recomendaciones basadas en sus generos y actores preferidos, también permite cambiar de usuario o acceder a la interfaz para ver nuevas peliculas.
+
 GUI_verPeliculas.py.- Permite simular que el usuario ve una nueva pelicula seleccionándola desde un combo box, al hacerlo se actualizan sus preferencias y recomendaciones.
+
 (Clases)
+
 usuario.py.- Define la clase usuario y contiene toda la logica de actualización de peliculas vistas, preferencias, recomendaciones y persistencia de datos.
+
 peliculas.py.- Define la clase peliculas, que representa cada pelicula con su nombre, lista de géneros y lista de actores.
+
 generos.py.- Define la clase generos, usada para identificar los distintos generos disponibles.
+
 actores.py.- Define la clase actores, usada para identificar los distintos actores disponibles.
+
 (Usada para cargar datos por app.py)
+
 creaciones.py.- Genera las listas iniciales de actores, géneros, peliculas y usuarios a partir de los archivos en la carpeta data.
+
 
 Flujo del Sistema:
 
