@@ -3,9 +3,13 @@ Descripción General:
 Este proyecto implementa un sistema de detección de correos spam utilizando Python, el sistema carga correos desde un archivo CSV (data/correos.csv), crea objetos tipo correo con los datos extraidos del CSV y ejecuta la detección de spam basada en reglas de palabras clave(se analiza el asunto y contenido), reputación del remitente(por palabras que contenga la direccion del remitente), riesgo de links malware(por su extension) y riesgo de archivos adjuntos (por su tipo), y finalmente muestra un conteo sobre los correos originalmente spam y legibles, y los detectados por el sistema para comprobar su correcto funcionamiento.
 
 Estructura del proyecto:
+
 app.py
+
 correo.py
+
 creacion.py
+
 data/
     correos.csv
     
