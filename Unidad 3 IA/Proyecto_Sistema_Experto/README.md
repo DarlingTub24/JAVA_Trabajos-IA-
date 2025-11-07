@@ -17,6 +17,6 @@ Generar preguntas en base a la enfermedad que el sistema teoriza que padeces en 
 Actualizacion en tiempo real de la enfermedad que se teoriza padece el paciente.
 Mostrar diagnostico al usuario en base a la enfermedad que se determino que padece.
 
-## REQUISITOS
+## EJECUCION
 
-
+La explicacion viene en el documento Tutorial de ejecucion.pdf
