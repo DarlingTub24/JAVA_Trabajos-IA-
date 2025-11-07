@@ -1,22 +1,32 @@
-## SISTEMA EXPERTO MEDICO PARA ENFERMEDADES RESPIRATORIAS CON GUI
+## 🩺💻 SISTEMA EXPERTO MÉDICO PARA ENFERMEDADES RESPIRATORIAS CON GUI
 
-Elaborado por: Jonatan Arnoldo Valdez Ayala y Jose Enrique Espindola Leyva
+**Elaborado por:**
+- 👨‍💻 *Jonatan Arnoldo Valdez Ayala*
+- 👨‍💻 *Jose Enrique Espindola Leyva*
 
-## DESCRIPCION
+---
 
-Este proyecto implementa un Sistema Experto para el diagnostico de enfermedades respiratorias
-en base a los sintomas del usuario que utilize el programa utilizando razonamiento hacia atras.
-Cuenta con una interfaz grafica de usuario (GUI) desarrollada con Tkinter, que permite a los usuarios:
+## 📄 DESCRIPCIÓN
 
-Responder preguntas de Si/No acerca de los sintomas que esta presentando en el instante en que esta siendo cuestionado.
-Recibir un diagnostico acerca de la enfermedad que padece donde se le dara una recomendacion acerca de que hacer al padecer dada enfermedad la cual contara con su dicha justificacion y ademas una lista de los sintomas que este padece.
+Este proyecto implementa un **Sistema Experto** para el diagnóstico de **enfermedades respiratorias** 🌬️ basado en los **síntomas del usuario**, utilizando **razonamiento hacia atrás** 🔄.
 
-## FUNCIONALIDADES
+Cuenta con una **interfaz gráfica de usuario (GUI)** 🖥️ desarrollada con **Tkinter**, que permite a los usuarios:
 
-Generar preguntas en base a la enfermedad que el sistema teoriza que padeces en cada momento.
-Actualizacion en tiempo real de la enfermedad que se teoriza padece el paciente.
-Mostrar diagnostico al usuario en base a la enfermedad que se determino que padece.
+- ✅ Responder preguntas de **Sí/No** acerca de los síntomas que presenta en el momento.
+- 🧠 Recibir un **diagnóstico** sobre la enfermedad que podría padecer.
+- 💡 Obtener una **recomendación** sobre qué hacer respecto a la enfermedad diagnosticada, incluyendo explicación y lista de síntomas relacionados.
 
-## EJECUCION
+---
 
-La explicacion viene en el documento Tutorial de ejecucion.pdf
+## ⚙️ FUNCIONALIDADES
+
+- ❓ Generar preguntas en base a la enfermedad que el sistema teoriza durante la evaluación.
+- 🔄 Actualización **en tiempo real** de la posible enfermedad mientras el usuario responde.
+- 📝 Mostrar un **diagnóstico final** al usuario con su correspondiente recomendación y justificación.
+
+---
+
+## ▶️ EJECUCIÓN
+
+📘 La explicación detallada se encuentra en el archivo:  
+**`Tutorial de ejecución.pdf`**
