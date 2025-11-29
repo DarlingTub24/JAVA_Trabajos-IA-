@@ -4,7 +4,7 @@ https://drive.google.com/drive/folders/1dFyUTqx9YDUuG0sxlsJ4v_gjZAmBc5zD?usp=sha
 
 Link directo del Video que esta en el Drive:
 
-INSERTARLINKDELVIDEOENELDRIVE
+https://drive.google.com/file/d/1v3Ut_UjAkcL8Lezs9rVMhijRdZAyqHXP/view?usp=sharing
 
 📷 SISTEMA DE DETECCIÓN DE EMOCIONES CON DEEP LEARNING Y RECONOCIMIENTO FACIAL EN TIEMPO REAL
 
