@@ -1,5 +1,9 @@
-Link del Google Drive (donde se encuentran el Dataset, el mejor modelo generado, el modelo final que puede ser o no el mejor y las clases [osea las emociones] en un .JSON):
+Link del Google Drive (donde se encuentran el Dataset, el mejor modelo generado, el modelo final que puede ser o no el mejor, las clases [osea las emociones] en un .JSON y el VIDEO testeando el modelo):
 https://drive.google.com/drive/folders/1dFyUTqx9YDUuG0sxlsJ4v_gjZAmBc5zD?usp=sharing
+
+Link directo del Video que esta en el Drive:
+
+INSERTARLINKDELVIDEOENELDRIVE
 
 📷 SISTEMA DE DETECCIÓN DE EMOCIONES CON DEEP LEARNING Y RECONOCIMIENTO FACIAL EN TIEMPO REAL
 
