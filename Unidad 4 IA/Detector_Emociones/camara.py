@@ -1,0 +1,83 @@
+import tensorflow as tf
+import cv2
+import numpy as np
+import json
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import mediapipe as mp
+
+#Cargar modelo entrenado
+modelo = tf.keras.models.load_model("mejor_modelo.h5")
+
+#Cargar clases
+with open("clases.json", "r") as f:
+    clases_indices = json.load(f)
+
+clases = {v: k for k, v in clases_indices.items()}
+
+#MediaPipe Face Detection
+mp_detector = mp.solutions.face_detection
+detector = mp_detector.FaceDetection(model_selection=0, min_detection_confidence=0.5)
+
+#Cámara
+camara = cv2.VideoCapture(0)
+camara.set(3, 640)
+camara.set(4, 480)
+
+print("Presiona 'q' para salir")
+
+while True:
+    ret, frame = camara.read()
+    if not ret:
+        break
+
+    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    resultados = detector.process(frame_rgb)
+
+    if resultados.detections:
+        for deteccion in resultados.detections:
+            h, w, _ = frame.shape
+            bbox = deteccion.location_data.relative_bounding_box
+
+            x1 = int(bbox.xmin * w)
+            y1 = int(bbox.ymin * h)
+            x2 = int((bbox.xmin + bbox.width) * w)
+            y2 = int((bbox.ymin + bbox.height) * h)
+
+            #Agregar padding
+            padding = 20
+            x1 = max(0, x1 - padding)
+            y1 = max(0, y1 - padding)
+            x2 = min(w, x2 + padding)
+            y2 = min(h, y2 + padding)
+
+            #Recortar rostro
+            cara = frame[y1:y2, x1:x2]
+
+            if cara.size == 0:
+                continue
+
+            #Preprocesar
+            cara_rgb = cv2.cvtColor(cara, cv2.COLOR_BGR2RGB)
+            cara_reescalada = cv2.resize(cara_rgb, (224, 224))
+            cara_input = preprocess_input(cara_reescalada)
+            cara_input = np.expand_dims(cara_input, axis=0)
+
+            #Predicción
+            prediccion = modelo.predict(cara_input, verbose=0)
+            clases_id = np.argmax(prediccion)
+            confianza = np.max(prediccion)
+            clases_nombre = clases[clases_id]
+
+            #Dibujar resultados
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.putText(frame, f"{clases_nombre} ({confianza*100:.1f}%)",
+                        (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,
+                        0.8, (0, 255, 0), 2)
+
+    cv2.imshow("Detector de Emociones", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+camara.release()
+cv2.destroyAllWindows()
