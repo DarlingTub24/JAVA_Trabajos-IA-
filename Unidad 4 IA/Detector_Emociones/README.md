@@ -24,6 +24,7 @@ El sistema trabaja con tres componentes principales:
 La detección facial se realiza con MediaPipe, mientras que el análisis emocional se ejecuta con TensorFlow/Keras y el modelo entrenado.
 
 ⚙️ FUNCIONALIDADES
+
 🔹 1. Entrenamiento del Modelo (entrenamiento.py)
 
 Uso de MobileNetV2 como red base para transfer learning.
