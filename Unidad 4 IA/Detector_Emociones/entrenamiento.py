@@ -14,7 +14,8 @@ modelo = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224,224
 modelo.trainable = False  # Congela MobileNetV2 (fase 1)
 
 
-# Cargar imágenes con split de validación
+# Aqui se cargan imágenes con split de validación del 20% y distintos filtros
+# como zoom, distintos grados de brillo, rotacion,etc..
 aumentacion = ImageDataGenerator(
     preprocessing_function=preprocess_input,
     rotation_range=10,
@@ -26,6 +27,7 @@ aumentacion = ImageDataGenerator(
     validation_split=0.2
 )
 
+# Aqui se cargn las imagenes para e l entrenamiento
 imagenes_entrenar = aumentacion.flow_from_directory(
     'dataset',
     target_size=(224, 224),
@@ -34,7 +36,7 @@ imagenes_entrenar = aumentacion.flow_from_directory(
     color_mode='rgb',
     subset='training'
 )
-
+# Aqui se cargn las imagenes para las pruebas
 imagenes_validar = aumentacion.flow_from_directory(
     'dataset',
     target_size=(224, 224),
@@ -51,10 +53,11 @@ cabeza_modelo = GlobalAveragePooling2D()(cabeza_modelo)
 cabeza_modelo = Dense(128, activation='relu')(cabeza_modelo)
 predictions = Dense(imagenes_entrenar.num_classes, activation='softmax')(cabeza_modelo)
 
+# Se construyie el modelo completo
 model = Model(inputs=modelo.input, outputs=predictions)
 
 
-#Compilar para la fase 1 (congelado)
+#Compilacion para la fase 1
 model.compile(
     optimizer=Adam(learning_rate=1e-4),
     loss='categorical_crossentropy',
@@ -63,12 +66,13 @@ model.compile(
 
 
 #CALLBACKS
+#Este es para que se detenga si ya no esta mejorando
 early_stop = EarlyStopping(
     monitor='val_loss',
     patience=5,
     restore_best_weights=True
 )
-
+ #Este reduce el Ratio de Aprendimiento si no esta mejorando
 reduce_lr = ReduceLROnPlateau(
     monitor='val_loss',
     factor=0.3,
@@ -76,6 +80,9 @@ reduce_lr = ReduceLROnPlateau(
     min_lr=1e-6
 )
 
+#Este es el que guarda la mejor version del modelo ya que si por ejemplo
+#comenzara a empeorar gracias a guardar en "mejor_modelo.h5" podremos tener
+#a salvo el mejor resultado del entrenamiento
 checkpoint = ModelCheckpoint(
     "mejor_modelo.h5",
     monitor="val_loss",
@@ -83,7 +90,7 @@ checkpoint = ModelCheckpoint(
 )
 
 
-#FASE 1: solo cabeza del modelo
+#FASE 1: se entrena solola cabeza del modelo
 print("===== ENTRENANDO FASE 1 (base congelada) =====")
 model.fit(
     imagenes_entrenar,
@@ -93,7 +100,8 @@ model.fit(
 )
 
 
-#FASE 2: fine-tuning (descongelar últimas capas)
+#FASE 2: "fine-tuning" Aqui se descongelan las últimas capas del modelo
+#para ajustar mas a nuestro dataset
 print("===== ENTRENANDO FASE 2 (fine-tuning) =====")
 
 tf.keras.backend.clear_session()
@@ -104,13 +112,13 @@ for layer in modelo.layers[:-40]:   # congela todo excepto las últimas 40 capas
 for layer in modelo.layers[-40:]:   # últimas 40 capas sí entrenan
     layer.trainable = True
 
-# recompilar con LR más bajo
+# recompilar con ratio de aprendimiento más bajo
 model.compile(
     optimizer=Adam(learning_rate=1e-5),
     loss='categorical_crossentropy',
     metrics=['accuracy']
 )
-
+# Entrenamiento de la fase 2
 model.fit(
     imagenes_entrenar,
     validation_data=imagenes_validar,
